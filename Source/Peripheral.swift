@@ -404,9 +404,9 @@ public class Peripheral {
                 guard let strongSelf = self else { throw BluetoothError.destroyed }
                 let characteristic = characteristic ?? Characteristic(characteristic: cbCharacteristic, peripheral: strongSelf)
                 if let error = error {
-                    throw BluetoothError.characteristicWriteFailed(characteristic, error)
+                    throw BluetoothError.characteristicWriteFailed(characteristic!, error)
                 }
-                return characteristic
+                return characteristic!
             }
         return ensureValidPeripheralState(for: observable)
     }
@@ -500,9 +500,9 @@ public class Peripheral {
                 guard let strongSelf = self else { throw BluetoothError.destroyed }
                 let characteristic = characteristic ?? Characteristic(characteristic: cbCharacteristic, peripheral: strongSelf)
                 if let error = error {
-                    throw BluetoothError.characteristicReadFailed(characteristic, error)
+                    throw BluetoothError.characteristicReadFailed(characteristic!, error)
                 }
-                return characteristic
+                return characteristic!
             }
         return ensureValidPeripheralState(for: observable)
     }
@@ -570,9 +570,9 @@ public class Peripheral {
                 guard let strongSelf = self else { throw BluetoothError.destroyed }
                 let characteristic = Characteristic(characteristic: cbCharacteristic, peripheral: strongSelf)
                 if let error = error {
-                    throw BluetoothError.characteristicSetNotifyValueFailed(characteristic, error)
+                    throw BluetoothError.characteristicSetNotifyValueFailed(characteristic!, error)
                 }
-                return characteristic
+                return characteristic!
         }
     }
 
@@ -639,9 +639,9 @@ public class Peripheral {
                 guard let strongSelf = self else { throw BluetoothError.destroyed }
                 let descriptor = descriptor ?? Descriptor(descriptor: cbDescriptor, peripheral: strongSelf)
                 if let error = error {
-                    throw BluetoothError.descriptorWriteFailed(descriptor, error)
+                    throw BluetoothError.descriptorWriteFailed(descriptor!, error)
                 }
-                return descriptor
+                return descriptor!
             }
         return ensureValidPeripheralState(for: observable)
     }
@@ -668,9 +668,9 @@ public class Peripheral {
                 guard let strongSelf = self else { throw BluetoothError.destroyed }
                 let descriptor = descriptor ?? Descriptor(descriptor: cbDescriptor, peripheral: strongSelf)
                 if let error = error {
-                    throw BluetoothError.descriptorReadFailed(descriptor, error)
+                    throw BluetoothError.descriptorReadFailed(descriptor!, error)
                 }
-                return descriptor
+                return descriptor!
             }
         return ensureValidPeripheralState(for: observable)
     }
